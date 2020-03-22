@@ -52,15 +52,41 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 var InputElement = function InputElement() {
-  return __jsx("input", {
+  // first returns: a read-only variable 
+  // whose value can only be set with the 2nd value, 
+  // which is always a function (ie setInputText).
+  // second returns: a function when called, updates state, 
+  // which is then reflected in the read-only variable
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(""),
+      inputText = _useState[0],
+      setInputText = _useState[1];
+
+  return __jsx("div", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12,
+      columnNumber: 12
+    }
+  }, __jsx("input", {
+    onChange: function onChange(e) {
+      setInputText(e.target.value);
+    },
     placeholder: "your text here",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 4,
-      columnNumber: 12
+      lineNumber: 12,
+      columnNumber: 17
     }
-  });
+  }), __jsx("br", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16,
+      columnNumber: 39
+    }
+  }), inputText);
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (InputElement);
