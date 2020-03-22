@@ -8,14 +8,22 @@ const InputElement = () => {
     // second returns: a function when called, updates state, 
     // which is then reflected in the read-only variable
     const [inputText, setInputText] = useState("")
+    const [historyList, setHistoryList] = useState([]);
 
     return <div><input 
         onChange={(e) => {
-            setInputText(e.target.value)
+            setInputText(e.target.value);
+            setHistoryList([...historyList, e.target.value]);
         }}
         placeholder="your text here"/><br/>
 
         {inputText}
+        <hr/><br/>
+        <ul>
+            {historyList.map((record)=> {
+                return <div>{record}</div>
+            })}
+        </ul>
     </div>
 }
 
